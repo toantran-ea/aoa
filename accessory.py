@@ -10,6 +10,7 @@ import time
 import threading
 import os
 import socket
+import pdb
  
 from attribs import *
  
@@ -81,11 +82,10 @@ def accessory_task():
  
     writer_thread = threading.Thread(target = writer, args = (ep_out, ))
     writer_thread.start()
-  
     length = -1
     while True:
         try:
-            data = ep_in.read(size = 1, timeout = 0)
+            data = ep_in.read(size_or_buffer = 1,timeout = 0)
             print("read value %d" % data[0])
         except usb.core.USBError:
             print("failed to send IN transfer")
@@ -95,15 +95,15 @@ def accessory_task():
     print("exiting application")
  
 def writer (ep_out):
-    while True:
-        try:
-            length = ep_out.write([0], timeout = 0)
-            print("%d bytes written" % length)
-            time.sleep(0.5)
-        except usb.core.USBError:
-            print("error in writer thread")
-            break
- 
+    # while True:
+    #     try:
+    #         length = ep_out.write([0], timeout = 0)
+    #         print("%d bytes written" % length)
+    #         time.sleep(0.5)
+    #     except usb.core.USBError:
+    #         print("error in writer thread")
+    #         break
+    pass
  
 def accessory(dev):
     version = dev.ctrl_transfer(

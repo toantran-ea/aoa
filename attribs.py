@@ -3,7 +3,7 @@
 # (c) Manuel Di Cerbo, Nexus-Computing GmbH
 # attribs.py
  
-MANUFACTURER = "Nexus-Computing GmbH"
+MANUFACTURER = "StackUSB"
 MODEL_NAME = "Simple Slider"
 DESCRIPTION = "A Simple Slider"
 VERSION = "0.1"
